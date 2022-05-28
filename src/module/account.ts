@@ -2,6 +2,8 @@ import { IStore } from '@/store/common';
 import { accountStoreState } from '@/store/accountInterface';
 import { Login, GenCsrfToken } from '@/services/login';
 import { GetProfile, UpdateProfile } from '@/services/account';
+import cookie from 'react-cookies';
+
 
 export const INCREMENT = 'INCREMENT';
 export const REDUCE = 'REDUCE';
@@ -48,6 +50,8 @@ const accountStore: IStore<accountStoreState> = {
       const { access_token, refresh_token } = dat;
       localStorage.setItem('access_token', access_token);
       localStorage.setItem('refresh_token', refresh_token);
+
+      cookie.save("sso2", access_token, { path: "/" })
       yield put({
         type: 'common/getClusters',
       });
@@ -56,7 +60,7 @@ const accountStore: IStore<accountStoreState> = {
       });
       return err;
     },
-    *getProfile({}, { put, call, select }: any) {
+    *getProfile({ }, { put, call, select }: any) {
       const { dat, err } = yield call(GetProfile);
       yield put({ type: SET_PROFILE, profile: dat });
       return err;

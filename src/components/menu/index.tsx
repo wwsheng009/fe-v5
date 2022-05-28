@@ -71,6 +71,10 @@ const SideMenu: FC = () => {
           key: '/dashboards',
           title: t('监控大盘'),
         },
+        {
+          key: '/grafana-dashboard',
+          title: t('Grafana'),
+        },
       ],
     },
     {

@@ -44,6 +44,7 @@ import Version from '@/pages/help/version';
 import Contact from '@/pages/help/contact';
 
 import { dynamicPackages, Entry } from '@/utils';
+import Grafana from '@/pages/grafana';
 
 const Packages = dynamicPackages();
 let lazyRoutes = Packages.reduce((result: any, module: Entry) => {
@@ -98,6 +99,7 @@ export default function Content() {
 
         <Route path='/dashboard/:busiId/:id' component={DashboardDetail} />
         <Route path='/dashboards' component={Dashboard} />
+        <Route path='/grafana-dashboard' component={Grafana} />
         <Route path='/chart/:ids' component={Chart} />
         <Route path='/resource/:id?' component={ResourcePage} />
         <Route path='/indicator' component={IndicatorPage} />
