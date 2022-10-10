@@ -26,6 +26,7 @@ import { CommonStoreState } from '@/store/commonInterface';
 import { Menu, Dropdown, Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { Logout } from '@/services/login';
+import cookie from 'react-cookies';
 interface IPageLayoutProps {
   icon?: ReactNode;
   title?: String | JSX.Element;
@@ -64,6 +65,7 @@ const PageLayout: React.FC<IPageLayoutProps> = ({ icon, title, rightArea, childr
           Logout().then((res) => {
             localStorage.removeItem('access_token');
             localStorage.removeItem('refresh_token');
+            cookie.remove('sso2', { path: '/' });
             dispatch({
               type: 'common/saveData',
               prop: 'clusters',

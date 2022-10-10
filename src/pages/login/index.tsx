@@ -62,7 +62,7 @@ export default function Login() {
       </div>
       <div className='login-panel'>
         <div className='login-main'>
-          <div className='login-title'>Nightingale</div>
+          <div className='login-title'>创新监控平台</div>
           <Form form={form} layout='vertical' requiredMark={true}>
             <Form.Item
               required
