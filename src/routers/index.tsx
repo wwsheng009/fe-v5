@@ -71,7 +71,7 @@ import RecordingRule from '@/pages/recordingRules';
 import RecordingRuleAdd from '@/pages/recordingRules/add';
 import RecordingRuleEdit from '@/pages/recordingRules/edit';
 import { dynamicPackages, Entry } from '@/utils';
-
+import Grafana from '@/pages/grafana';
 const Packages = dynamicPackages();
 let lazyRoutes = Packages.reduce((result: any, module: Entry) => {
   return (result = result.concat(module.routes));
@@ -138,6 +138,7 @@ export default function Content() {
         <Route path='/dashboards/:id' exact component={DashboardDetail} />
         <Route path='/dashboards/share/:id' component={DashboardShare} />
         <Route path='/dashboards' component={Dashboard} />
+        <Route path='/grafana-dashboard' component={Grafana} />
         <Route path='/chart/:ids' component={Chart} />
         <Route path='/indicator' component={IndicatorPage} />
 

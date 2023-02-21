@@ -72,7 +72,11 @@ export default defineConfig({
         changeOrigin: true,
       },
       '/api/n9e': {
-        target: 'http://10.206.0.11:9000/',
+        target: 'http://172.18.3.236:18000/',
+        changeOrigin: true,
+      },
+      '/grafana': {
+        target: 'http://172.18.3.236:3000/',
         changeOrigin: true,
       },
       '/api/v1/': {
