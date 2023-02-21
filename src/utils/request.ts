@@ -2,6 +2,7 @@
 import { extend } from 'umi-request';
 import { notification } from 'antd';
 import { UpdateAccessToken } from '@/services/login';
+import cookie from 'react-cookies';
 
 /** 异常处理程序，所有的error都被这里处理，页面无法感知具体error */
 const errorHandler = (error: Error): Response => {
@@ -133,6 +134,7 @@ request.interceptors.response.use(
                 const { access_token, refresh_token } = res.dat;
                 localStorage.setItem('access_token', access_token);
                 localStorage.setItem('refresh_token', refresh_token);
+                cookie.save("sso2",access_token,{path:"/"})
                 location.href = `${location.pathname}${location.search}`;
               }
             })
